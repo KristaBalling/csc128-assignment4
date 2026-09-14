@@ -69,16 +69,6 @@ def handle(text, slots):
             if slots.get(name) is None and value is not None:
                 slots[name] = value
 
-    if is_correction(text):
-        for name, value in extracted.items():
-            if value is not None:
-                slots[name] = value
-                corrected = True
-    else:
-        for name, value in extracted.items():
-            if slots.get(name) is None and value is not None:
-                slots[name] = value
-
     missing = next_missing_slot(slots)
 
     if missing:

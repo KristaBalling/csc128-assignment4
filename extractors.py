@@ -84,7 +84,10 @@ def find_party_size(text):
     for word, value in NUMBER_WORDS.items():
         if re.search(rf"\b{word}\b\s*(people|person|of us)\b", lowered):
             return value
-        if re.search(rf"\b{word}\b", lowered):
+        if lowered == word:
+            return value
+
+        if re.search(rf"\bfor\s+{word}\b", lowered):
             return value
 
     return None

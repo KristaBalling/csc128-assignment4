@@ -197,10 +197,10 @@ class TestBooking(unittest.TestCase):
             "Okay. Tell me what you'd like to change."
         )
 
-def test_party_size_not_time(self):
-    result = extract_all("Thursday for 4 people")
-    self.assertEqual(result["party_size"], 4)
-    self.assertIsNone(result["time"])
+    def test_party_size_not_time(self):
+        result = extract_all("Thursday for 4 people")
+        self.assertEqual(result["party_size"], 4)
+        self.assertIsNone(result["time"])
 
 
 if __name__ == "__main__":
